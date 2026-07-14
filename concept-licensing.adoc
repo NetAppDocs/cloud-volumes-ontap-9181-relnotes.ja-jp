@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: concept-licensing.html 
+keywords: freemium, professional, essential, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go 
+summary: Cloud Volumes ONTAP では、いくつかのライセンス オプションを使用できます。各オプションにより、ニーズに合った構成を選択できます。 
+---
+= Cloud Volumes ONTAP のライセンスの概要
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP では、いくつかのライセンス オプションを使用できます。各オプションでは、ニーズに合った消費モデルを選択できます。
+
+新規のお客様には、次のライセンス オプションをご利用いただけます。
+
+容量ベースのライセンスパッケージ:: 容量ベースのライセンスでは、Cloud Volumes ONTAPの容量1TiBあたりの料金を支払うことができます。ライセンスはNetAppアカウントに関連付けられており、ライセンスを通じて十分な容量が利用できる限り、複数のシステムに対してライセンスを課金することができます。
++
+--
+容量ベースのライセンスは、_パッケージ_の形式で利用できます。Cloud Volumes ONTAPシステムを導入する際、ビジネス ニーズに応じて複数のライセンス パッケージから選択できます。
+
+--
+
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#packages["パッケージ"^] https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing-charging.html["容量ベースのライセンスの詳細"^]
+
+Keystone Flex サブスクリプション:: 前払いのCapExやリースではなく、OpEx消費モデルを好む方々にシームレスなハイブリッドクラウド体験を提供する、従量課金型サブスクリプションサービスです。
++
+--
+料金は、Keystone Flex Subscriptionにおける1つ以上のCloud Volumes ONTAP HAペアのコミット容量のサイズに基づいて計算されます。
+
+--
+
+
+以前のノード単位のライセンス モデルは、すでにライセンスを購入しているお客様、またはアクティブなマーケットプレイス サブスクリプションをお持ちの既存のお客様は引き続きご利用いただけます。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["これらのライセンス オプションの詳細"^]

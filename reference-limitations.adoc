@@ -1,0 +1,124 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations.html 
+keywords: limitations, detaching, snapmanager, features, disks, aggregates, features, svm 
+summary: 今回のリリースでサポートされていない、または今回のリリースでは正常に機能しないプラットフォーム、デバイス、機能が記載されています。これらの制限事項をよく確認してください。 
+---
+= すべてのクラウド プロバイダにおけるCloud Volumes ONTAPの既知の制限事項
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+今回のリリースでサポートされていない、または今回のリリースでは正常に機能しないプラットフォーム、デバイス、機能が記載されています。これらの制限事項をよく確認してください。
+
+以下の制限は、すべてのクラウド プロバイダ（AWS、Azure、Google Cloud）のCloud Volumes ONTAPに適用されます。
+
+
+
+[[unsupported-ontap-features]]
+== サポートされていないONTAP機能
+
+一部の ONTAP 機能は Cloud Volumes ONTAP ではサポートされていません。以下はその例ですが、これらに限定されません：
+
+* アグリゲートレベルのインライン重複排除
+* アグリゲートレベルのバックグラウンド重複排除
+* ディスクMaintenance Center
+* ディスク完全消去
+* FabricPoolミラーリング
+* Fibre Channel（FC）
+* フラッシュプール
+* Infinite Volume
+* インターフェイス グループ
+* ノード内LIFフェイルオーバー
+* MetroCluster
+* マルチ管理者認証
++
+Cloud Volumes ONTAPで複数管理者による検証を有効にすると、サポートされていない構成になります。
+
+* RAID4、RAID-DP、RAID-TEC（RAID0に対応）
+* Service Processor
+* SnapLock ComplianceモードとEnterpriseモード（Cloud WORMのみがサポートされます）
+* SnapMirror Synchronous
+* VLAN
+* 暗号化用の Onboard Key Manager（OKM）
+* SMB継続的可用性（CA）
++
+https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/What_are_SMB_Continuous_Availability_CA_Shares["継続的可用性を備えたSMB共有"^]による無停止運用はサポートされていません。
+
+
+
+
+
+[[maximum-concurrent-replication-operations]]
+== 最大同時レプリケーション操作数
+
+Cloud Volumes ONTAPの同時SnapMirrorまたはSnapVault転送の最大数は、インスタンスタイプやマシンタイプに関係なく、ノードあたり100です。
+
+
+
+[[cloud-provider-snapshots-must-not-be-used-for-your-backup-and-recovery-plans]]
+== クラウド プロバイダのスナップショットは、バックアップおよびリカバリ計画には使用しないでください。
+
+Cloud Volumes ONTAPデータのバックアップおよびリカバリ計画の一部として、クラウド プロバイダのスナップショットを使用しないでください。Cloud Volumes ONTAPでホストされているデータをバックアップおよび復元するには、常にONTAPスナップショットコピーまたはサードパーティのバックアップソリューションを使用する必要があります。
+
+https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recoveryを使用してONTAPデータをバックアップおよびリストアする方法を学習します"^]。
+
+
+NOTE: WAFLファイルシステムのONTAP整合性ポイントによって、データの整合性が決まります。ONTAPだけがWAFLファイルシステムを休止してcrash-consistentバックアップを作成できます。
+
+
+
+[[cloud-volumes-ontap-supports-only-reserved-and-on-demand-vm-instances]]
+== Cloud Volumes ONTAPは予約済みおよびオンデマンドのVMインスタンスのみをサポートします
+
+Cloud Volumes ONTAPは、クラウド プロバイダの予約済みまたはオンデマンドのVMインスタンスで実行できます。他のタイプのVMインスタンスはサポートされていません。
+
+
+
+[[automatic-application-resource-management-solutions-shouldnt-be-used]]
+== 自動アプリケーション リソース管理ソリューションは使用しないでください
+
+自動アプリケーションリソース管理ソリューションでは、Cloud Volumes ONTAPシステムを管理しないでください。管理すると、サポートされていない構成に変更される可能性があります。たとえば、このソリューションによってCloud Volumes ONTAPがサポートされていないVMインスタンスタイプに変更される可能性があります。
+
+
+
+[[software-updates-must-be-completed-by-netapp-console]]
+== ソフトウェアアップデートは、NetApp Consoleで完了する必要があります
+
+Cloud Volumes ONTAP のアップグレードは、NetApp Console から完了する必要があります。System Manager または CLI を使用して Cloud Volumes ONTAP をアップグレードしないでください。これを行うと、システムの安定性に影響する可能性があります。
+
+
+
+[[cloud-volumes-ontap-deployment-must-not-be-modified-from-your-cloud-providers-console]]
+== Cloud Volumes ONTAP の導入は、クラウド プロバイダのコンソールから変更しないでください
+
+クラウド プロバイダのコンソールからCloud Volumes ONTAP構成を変更すると、サポートされていない構成になります。コンソールが作成および管理するCloud Volumes ONTAPリソースを変更すると、システムの安定性とコンソールのシステム管理能力に影響を及ぼす可能性があります。
+
+
+NOTE: 初期導入後、Cloud Volumes ONTAPリソースに使用されるAzureサブスクリプション名の変更がサポートされます。
+
+
+
+[[disks-and-aggregates-must-be-managed-from-the-console]]
+== ディスクとアグリゲートは Console から管理する必要がある
+
+すべてのディスクとアグリゲートは、コンソールから直接作成および削除する必要があります。これらのアクションを別の管理ツールから実行しないでください。そうすると、システムの安定性に影響を及ぼし、将来ディスクを追加する能力を妨げ、冗長なクラウド プロバイダ料金が発生する可能性があります。
+
+
+
+[[snapmanager-licensing-limitation]]
+== SnapManager ライセンスの制限
+
+SnapManagerサーバごとのライセンスは、Cloud Volumes ONTAPでサポートされています。ストレージ システムごと（SnapManagerスイート）のライセンスはサポートされていません。
+
+
+
+[[limitations-with-third-party-agents-and-extensions]]
+== サードパーティのエージェントと拡張機能の制限
+
+サードパーティのエージェントとVM拡張機能は、Cloud Volumes ONTAP仮想マシンインスタンスではサポートされていません。

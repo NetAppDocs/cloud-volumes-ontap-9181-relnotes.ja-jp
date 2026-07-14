@@ -1,0 +1,85 @@
+---
+sidebar: sidebar 
+permalink: reference-new.html 
+keywords: 'what"s new, new, features, release notes, enhancements' 
+summary: Cloud Volumes ONTAP 9.18.1 には新しい機能強化が含まれています。 
+---
+= Cloud Volumes ONTAP 9.18.1 の新機能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 9.18.1への導入とアップグレードが可能になりました。このリリースの基本バージョンと、展開およびアップグレードに使用できる最新のパッチ バージョンをNetApp Consoleで確認できます。
+
+Cloud Volumes ONTAP の最新バージョンで導入された機能について知るには、NetApp Console の新機能をご覧ください https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP"^]。
+
+
+
+[[9-18-1-p2-30-april-2026]]
+== 9.18.1 P2（30 April 2026）
+
+Cloud Volumes ONTAP 9.18.1 P2 パッチが AWS、Azure、Google Cloud での展開およびアップグレードに利用できるようになりました。コンソールに、既存のシステムをこのパッチリリースにアップグレードするよう促すメッセージが表示されます。
+
+
+NOTE: AWSの場合、Cloud Volumes ONTAP 9.18.1 P2は、導入およびアップグレードのための標準バージョンです。9.18.1より古いバージョンやパッチはサポートされていません。
+
+link:https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.18.1P2["P2パッチで修正されたバグのリストを表示する"^]（NetApp Support Site へのログインが必要です）。
+
+
+
+[[9-18-1-p1-31-march-2026]]
+== 9.18.1 P1（2026年3月31日）
+
+Cloud Volumes ONTAP 9.18.1 P1パッチが、AzureおよびGoogle Cloudへのデプロイとアップグレードに利用可能になりました。コンソールに、既存のシステムをこのパッチリリースにアップグレードするよう促すメッセージが表示されます。
+
+
+NOTE: このバージョンは、AWSへのデプロイおよびアップグレードには対応していません。
+
+link:https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/downloads-tab/download/62632/9.18.1P1["P1パッチで修正されたバグのリストを表示する"^]（NetApp Support Site へのログインが必要です）。
+
+
+
+[[9-18-1-ga-10-february-2026]]
+== 9.18.1 GA（2026年2月10日）
+
+Cloud Volumes ONTAP 9.18.1の一般提供版が、Microsoft AzureおよびGoogle Cloudでのデプロイとアップグレードに利用可能になりました。
+
+
+NOTE: このバージョンは、Amazon Web Services (AWS) へのデプロイおよびアップグレードには対応していません。
+
+
+
+[[upgrade-notes]]
+== アップグレードに関する注意事項
+
+このリリースへのアップグレードの詳細については、これらの注意事項をお読みください。
+
+
+
+[[how-to-upgrade]]
+=== アップグレード方法
+
+Cloud Volumes ONTAP のアップグレードは Console から完了する必要があります。System Manager または CLI を使用して Cloud Volumes ONTAP をアップグレードしないでください。これを行うと、システムの安定性に影響する可能性があります。
+
+link:http://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-updating-ontap-cloud.html["NetApp Consoleから通知があった場合にアップグレードする方法を学びます"^]。
+
+
+
+[[supported-upgrade-path]]
+=== サポートされているアップグレード パス
+
+AWS、Azure、Google Cloud の 9.17.1 P1 以降のパッチから Cloud Volumes ONTAP 9.18.1 にアップグレードできます。コンソールは、対象となる Cloud Volumes ONTAP システムをこのリリースにアップグレードするように促します。
+
+
+
+[[downtime]]
+=== ダウンタイム
+
+* 単一ノード システムをアップグレードすると、システムが最大 25 分間オフラインになり、その間 I/O が中断されます。
+* HA ペアのアップグレードは中断を伴わず、I/O も中断されません。この中断のないアップグレード プロセスでは、各ノードが同時にアップグレードされ、クライアントへの I/O の提供が継続されます。
+

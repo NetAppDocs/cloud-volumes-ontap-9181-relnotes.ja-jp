@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: reference-issues.html 
+keywords: issues, bugs, known issues 
+summary: 今回のリリースの動作に悪影響を及ぼす可能性がある既知の問題が記載されています。 
+---
+= Cloud Volumes ONTAPの既知の問題
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+今回のリリースの動作に悪影響を及ぼす可能性がある既知の問題が記載されています。
+
+このリリースでは、Cloud Volumes ONTAP に固有の既知の問題はありません。
+
+ONTAP ソフトウェアの既知の問題は https://library.netapp.com/ecm/ecm_download_file/ECMLP2492508["ONTAP Release Notes"^]で確認できます。
